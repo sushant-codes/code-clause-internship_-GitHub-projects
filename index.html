@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url("back.jpg");
+    background-size: cover;
+  }
+  #timer {
+    font-size: 2em;
+    margin-top: 20px;
+    background-image: url("back.jpg");
+    background-size: cover;
+  }
+</style>
+</head>
+<body>
+<h1>Countdown Timer</h1>
+<div id="timer">00:00:00</div>
+<br>
+<br>
+<h1><u>"Life is 10% what happens to us and 90% how we react to it"</u></h1>
+
+<script>
+  // Set the target date and time
+  const targetDate = new Date("2024-03-08T00:00:00").getTime();
+
+  // Update the countdown every second
+  const interval = setInterval(function() {
+    // Get the current date and time
+    const now = new Date().getTime();
+
+    // Calculate the remaining time
+    const distance = targetDate - now;
+
+    // Calculate hours, minutes, and seconds
+    const hours = Math.floor(distance / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the countdown
+    document.getElementById("timer").textContent = 
+      ("0" + hours).slice(-2) + ":" + 
+      ("0" + minutes).slice(-2) + ":" + 
+      ("0" + seconds).slice(-2);
+
+    // If the countdown is finished, display a message
+    if (distance < 0) {
+      clearInterval(interval);
+      document.getElementById("timer").textContent = "EXPIRED";
+    }
+  }, 1000); // Update every second
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url("back.jpg");
+    background-size: cover;
+  }
+  #timer {
+    font-size: 2em;
+    margin-top: 20px;
+  }
+
+
